@@ -24,12 +24,13 @@
 <title>数据查询</title>
 </head>
 <body>
-<table id="list_data" 
+	<a href="<%=basePath%>page/Exdata?type=<%=type%>" target="_blank" class="easyui-linkbutton" iconCls="icon-save" plain="true">导出ZIP数据包</a>
+<table id="list_data-<%=type%>" 
 		style="width:$(document.body).width();height:$(document.body).height();">
 	</table>
 <script>
 	//datagrid初始化 
-	$('#list_data').datagrid({
+	$('#list_data-<%=type%>').datagrid({
 	    title:'查询结果',
 	    iconCls:'icon-search',//图标  
 	    url:'<%=basePath%>page/QueryData?type=<%=type%>',
@@ -38,9 +39,8 @@
 		pagination : true,//分页控件  
 		rownumbers : true,
 		pageNumber:1,
-		pageSize:20,
+		pageSize:15,
 		pageList:[ 5, 10, 15 ,20,25,30],
-		footer:'#ft',
 		columns:[[  
 				 {field:'masteridcard',title:'主申请人身份号'},
 				 {field:'mastername',title:'主申请人姓名'},
@@ -67,7 +67,7 @@
 	});
 	
 	</script>
-	<script type="text/javascript">
+	<%-- <script type="text/javascript">
 		$(function(){
 			var pager = $('#list_data').datagrid().datagrid('getPager');	// get the pager of datagrid
 			pager.pagination({
@@ -76,7 +76,7 @@
 		})
 	</script>
 	<div id="ft">
-		<a href="<%=basePath%>page/Exdata?type=cszb" target="_blank" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
-	</div>
+		<a href="<%=basePath%>page/Exdata?type=<%=type%>" target="_blank" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
+	</div> --%>
 </body>
 </html>

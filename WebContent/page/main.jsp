@@ -73,18 +73,18 @@
 		<div class="easyui-accordion" data-options="fit:true,border:false">
 			<div title="数据导出" style="padding: 10px;" data-options="selected:true">
 				<a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市新增导出','<%=basePath%>/page/Exdata?type=csadd')">
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市新增导出','<%=basePath%>page/exdata.jsp?type=csadd')">
 					城市新增导出</a>
 					 <a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市在保导出','<%=basePath%>/page/Exdata?type=cszb')">城市在保导出</a>
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市在保导出','<%=basePath%>page/exdata.jsp?type=cszb')">城市在保导出</a>
 					
 					<a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村新增导出','<%=basePath%>/page/Exdata?type=ncadd')">
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村新增导出','<%=basePath%>page/exdata.jsp?type=ncadd')">
 					农村新增导出</a>
 					 <a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村在保导出','<%=basePath%>/page/Exdata?type=nczb')">农村在保导出</a>
-					 <a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('a','<%=basePath%>/page/exdata.jsp?type=cszb')">a</a>
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村在保导出','<%=basePath%>page/exdata.jsp?type=nczb')">农村在保导出</a>
+					<%--  <a href="javascript:void(0)" class="easyui-linkbutton"
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('a','<%=basePath%>page/exdata.jsp?type=cszb')">a</a> --%>
 			</div>
 		</div>
 	</div>
