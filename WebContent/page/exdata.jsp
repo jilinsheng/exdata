@@ -47,7 +47,6 @@
 				 {field:'memberidcard',title:'成员身份证号'},
 				 {field:'membername',title:'成员姓名'},
 				 {field:'sex',title:'性别'},
-				 {field:'personstate',title:'状态'},
 				 {field:'relmaster',title:'与户主关系'},
         ]],
 		loadFilter: function(data){
