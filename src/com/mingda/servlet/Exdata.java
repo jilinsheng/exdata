@@ -60,7 +60,7 @@ public class Exdata extends HttpServlet {
 			if ("csadd".equals(type)) {
 				ds = "cs";
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData3(o2, ds),
-						rd.getData4(o2, ds));
+						rd.getData4(o2, ds),rd.getDataFhs2(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
 						+ ".zip\" target=\"_blank\">下载文件</a>";
@@ -68,7 +68,7 @@ public class Exdata extends HttpServlet {
 			if ("cszb".equals(type)) {
 				ds = "cs";
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData1(o2, ds),
-						rd.getData2(o2, ds));
+						rd.getData2(o2, ds),rd.getDataFhs1(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
 						+ ".zip\" target=\"_blank\">下载文件</a>";
@@ -80,7 +80,7 @@ public class Exdata extends HttpServlet {
 			if ("ncadd".equals(type)) {
 				ds = "nc";
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData3(o2, ds),
-						rd.getData4(o2, ds));
+						rd.getData4(o2, ds),rd.getDataFhs2(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
 						+ ".zip\" target=\"_blank\">下载文件</a>";
@@ -88,7 +88,7 @@ public class Exdata extends HttpServlet {
 			if ("nczb".equals(type)) {
 				ds = "nc";
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData1(o2, ds),
-						rd.getData2(o2, ds));
+						rd.getData2(o2, ds),rd.getDataFhs1(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
 						+ ".zip\" target=\"_blank\">下载文件</a>";

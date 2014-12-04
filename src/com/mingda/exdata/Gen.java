@@ -24,18 +24,23 @@ import jxl.write.WriteException;
  * @author Administrator
  */
 public class Gen {
+	private List<ApplyDTO> l3;
 
 	@SuppressWarnings("unused")
-	public void GenXLS(String onno, String dirpath,List<ApplyDTO> l1,List<ApplyDTO> l2) {
+	public void GenXLS(String onno, String dirpath, List<ApplyDTO> l1,
+			List<ApplyDTO> l2, List<ApplyDTO> fhs) {
 		try {
 			File dir1 = new File(dirpath + "\\" + onno);
 			File dir2 = new File(dirpath + "\\" + onno + "\\SFZ");
+			File dir3 = new File(dirpath + "\\" + onno + "\\SQS");
 
 			if (!dir1.exists()) {
 				System.out.println(dir1);
 				dir1.mkdirs();
 				System.out.println(dir2);
 				dir2.mkdirs();
+				System.out.println(dir2);
+				dir3.mkdirs();
 			}
 
 			File file = new File(dirpath + "\\" + onno + "\\" + onno + ".xls");
@@ -49,9 +54,14 @@ public class Gen {
 			WritableSheet ws1 = wb.createSheet("apply", 0);
 			WritableSheet ws2 = wb.createSheet("family_members", 1);
 			WritableSheet ws3 = wb.createSheet("material", 2);
+			WritableSheet ws4 = wb.createSheet("deposit", 3);
+			WritableSheet ws5 = wb.createSheet("stock", 4);
+			WritableSheet ws6 = wb.createSheet("vehicle", 5);
+			WritableSheet ws7 = wb.createSheet("house_property", 6);
+			WritableSheet ws8 = wb.createSheet("large_agricultural", 7);
 
 			ReadData rd = new ReadData();
-			//List<ApplyDTO> l1 = rd.getData1(uuid);
+			// List<ApplyDTO> l1 = rd.getData1(uuid);
 			// 主申请人姓名 证件类型 证件号码 委托时间
 
 			ws1.addCell(new Label(0, startRowNum, "主申请人姓名"));
@@ -81,7 +91,7 @@ public class Gen {
 			ws3.addCell(new Label(1, startRowNum, "名称"));
 			ws3.addCell(new Label(2, startRowNum, "种类"));
 			startRowNum++;
-			//List<ApplyDTO> l2 = rd.getData2(uuid);
+			// List<ApplyDTO> l2 = rd.getData2(uuid);
 			for (ApplyDTO e : l2) {
 				ws2.addCell(new Label(0, startRowNum, e.getMasteridcard()));
 				ws2.addCell(new Label(1, startRowNum, e.getMembername()));
@@ -101,6 +111,98 @@ public class Gen {
 				}
 				startRowNum++;
 			}
+			// 主申请人身份证号 姓名 开户行 账户余额
+			startRowNum = 0;// 起始行
+			startColNum = 0;// 起始列
+			maxColSize = 4;// 最大列数
+			ws4.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+			ws4.addCell(new Label(1, startRowNum, "姓名"));
+			ws4.addCell(new Label(2, startRowNum, "开户行"));
+			ws4.addCell(new Label(3, startRowNum, "账户余额"));
+			startRowNum++;
+
+			for (ApplyDTO e : l3) {
+				ws4.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+				ws4.addCell(new Label(1, startRowNum, "姓名"));
+				ws4.addCell(new Label(2, startRowNum, "开户行"));
+				ws4.addCell(new Label(3, startRowNum, "账户余额"));
+				startRowNum++;
+			}
+
+			// 主申请人身份证号 股票账户持有人 基金账户持有人 股票（基金）市值
+			startRowNum = 0;// 起始行
+			startColNum = 0;// 起始列
+			maxColSize = 4;// 最大列数
+			ws5.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+			ws5.addCell(new Label(1, startRowNum, "股票账户持有人"));
+			ws5.addCell(new Label(2, startRowNum, "基金账户持有人"));
+			ws5.addCell(new Label(3, startRowNum, "股票（基金）市值"));
+			startRowNum++;
+
+			for (ApplyDTO e : l3) {
+				ws5.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+				ws5.addCell(new Label(1, startRowNum, "股票账户持有人"));
+				ws5.addCell(new Label(2, startRowNum, "基金账户持有人"));
+				ws5.addCell(new Label(3, startRowNum, "股票（基金）市值"));
+				startRowNum++;
+			}
+
+			// 主申请人身份证号 车（船）登记证编号 购置时间 车（船）现值
+			startRowNum = 0;// 起始行
+			startColNum = 0;// 起始列
+			maxColSize = 4;// 最大列数
+			ws6.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+			ws6.addCell(new Label(1, startRowNum, "车（船）登记证编号"));
+			ws6.addCell(new Label(2, startRowNum, "登记证编号"));
+			ws6.addCell(new Label(3, startRowNum, "购置时间   车（船）现值"));
+			startRowNum++;
+
+			for (ApplyDTO e : l3) {
+				ws6.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+				ws6.addCell(new Label(1, startRowNum, "车（船）登记证编号"));
+				ws6.addCell(new Label(2, startRowNum, "登记证编号"));
+				ws6.addCell(new Label(3, startRowNum, "购置时间   车（船）现值"));
+				startRowNum++;
+			}
+
+			// 主申请人身份证号 有无产权 房产证编号 住房来源 房屋建筑面积
+			startRowNum = 0;// 起始行
+			startColNum = 0;// 起始列
+			maxColSize = 4;// 最大列数
+			ws7.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+			ws7.addCell(new Label(1, startRowNum, "有无产权"));
+			ws7.addCell(new Label(2, startRowNum, "房产证编号"));
+			ws7.addCell(new Label(3, startRowNum, "住房来源"));
+			ws7.addCell(new Label(4, startRowNum, "房屋建筑面积"));
+			startRowNum++;
+
+			for (ApplyDTO e : fhs) {
+				ws7.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+				ws7.addCell(new Label(1, startRowNum, "有无产权"));
+				ws7.addCell(new Label(2, startRowNum, "房产证编号"));
+				ws7.addCell(new Label(3, startRowNum, "住房来源"));
+				ws7.addCell(new Label(4, startRowNum, "房屋建筑面积"));
+				startRowNum++;
+			}
+
+			// 主申请人身份证号 大型农机登记证编号 购置时间 大型农机现值
+
+			startRowNum = 0;// 起始行
+			startColNum = 0;// 起始列
+			maxColSize = 4;// 最大列数
+			ws8.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+			ws8.addCell(new Label(1, startRowNum, "大型农机登记证编号"));
+			ws8.addCell(new Label(2, startRowNum, "购置时间"));
+			ws8.addCell(new Label(3, startRowNum, "大型农机现值"));
+			startRowNum++;
+			for (ApplyDTO e : l3) {
+				ws8.addCell(new Label(0, startRowNum, "主申请人身份证号"));
+				ws8.addCell(new Label(1, startRowNum, "大型农机登记证编号"));
+				ws8.addCell(new Label(2, startRowNum, "购置时间"));
+				ws8.addCell(new Label(3, startRowNum, "大型农机现值"));
+				startRowNum++;
+			}
+
 			wb.write();
 			wb.close();
 			ZipCompressorByAnt zca = new ZipCompressorByAnt(dirpath + "//"
@@ -142,6 +244,6 @@ public class Gen {
 	}
 
 	public static void main(String[] args) {
-	
+
 	}
 }

@@ -110,8 +110,9 @@ public class ReadData {
 				+ " t.sex          as fm_sex, "
 				+ " t.memberidcard as fm_paperid, "
 				+ " t.relmaster    as fm_relmaster, "
-				+ " t.familyid     as familyid, " + " t.memberid     as fm_id "
-				+ " from excurrent t  "
+				+ " t.familyid     as familyid, "
+				+ " t.memberid     as fm_id "
+				+ " from excurrent t "
 				+ " where  t.familyno like ? and t.ds like ?";
 		System.out.println(sql);
 		try {
@@ -174,6 +175,71 @@ public class ReadData {
 				e.setFamilyid(rs.getString("familyid"));
 				e.setMemberid(rs.getString("fm_id"));
 				e.setMastername(rs.getString("mastername"));
+				list.add(e);
+			}
+
+		} catch (SQLException | ClassNotFoundException ex) {
+			Logger.getLogger(ReadData.class.getName()).log(Level.SEVERE, null,
+					ex);
+		} finally {
+			db.close(conn, ps, rs);
+		}
+		return list;
+	}
+
+	public List<ApplyDTO> getDataFhs2(String onno, String ds) {
+		List<ApplyDTO> list = new ArrayList<ApplyDTO>();
+		DBconn db = new DBconn();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = " select paperid, chanquan, fh_number, laiyuan, fh_buildarea, on_no, ds from ccc_fh where 1<>1 and on_no like ? and ds like ?";
+		System.out.println(sql);
+		try {
+			conn = db.getJDBCConn();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, onno + "%");
+			ps.setString(2, "%" + ds + "%");
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				ApplyDTO e = new ApplyDTO();
+				e.setMasteridcard(rs.getString("paperid"));
+				e.setChanquan(rs.getString("chanquan"));
+				e.setFhnumber(rs.getString("fh_number"));
+				e.setLaiyuan(rs.getString("laiyuan"));
+				e.setFhbuildarea(rs.getString("fh_buildarea"));
+				list.add(e);
+			}
+
+		} catch (SQLException | ClassNotFoundException ex) {
+			Logger.getLogger(ReadData.class.getName()).log(Level.SEVERE, null,
+					ex);
+		} finally {
+			db.close(conn, ps, rs);
+		}
+		return list;
+	}
+	public List<ApplyDTO> getDataFhs1(String onno, String ds) {
+		List<ApplyDTO> list = new ArrayList<ApplyDTO>();
+		DBconn db = new DBconn();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = " select paperid, chanquan, fh_number, laiyuan, fh_buildarea, on_no, ds from ccc_fh where on_no like ? and ds like ?";
+		System.out.println(sql);
+		try {
+			conn = db.getJDBCConn();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, onno + "%");
+			ps.setString(2, "%" + ds + "%");
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				ApplyDTO e = new ApplyDTO();
+				e.setMasteridcard(rs.getString("paperid"));
+				e.setChanquan(rs.getString("chanquan"));
+				e.setFhnumber(rs.getString("fh_number"));
+				e.setLaiyuan(rs.getString("laiyuan"));
+				e.setFhbuildarea(rs.getString("fh_buildarea"));
 				list.add(e);
 			}
 
