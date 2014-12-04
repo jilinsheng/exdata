@@ -32,8 +32,13 @@ public class ReadData {
 				+ " t.masteridcard as idcard, "
 				+ " '身份证' as idtype, "
 				+ " to_char(sysdate, 'yyyy-MM-dd') as wt, "
-				+ " t.familyid "
-				+ " from excurrent t where t.relmaster = '本人' and t.familyno like ? and t.ds like ?";
+				+ " t.familyid ,"
+				+ " t.income1, t.income2, t.income3, "
+				+ " t.income4, t.income5, t.income6, "
+				+ " t.income7,  t.income8, t.income9, "
+				+ " t.income10, t.married, t.sicken, "
+				+ " t.deformity,  t.defgrade, t.labor,t.fmsort,t.job "
+				+ " from excurrent1 t where t.relmaster = '本人' and t.familyno like ? and t.ds like ?";
 		System.out.println(sql);
 		try {
 			conn = db.getJDBCConn();
@@ -48,6 +53,25 @@ public class ReadData {
 				e.setWt(rs.getString("WT"));
 				e.setMasteridcard(rs.getString("IDCARD"));
 				e.setMastername(rs.getString("ANAME"));
+
+				e.setIncome1(rs.getString("income1"));
+				e.setIncome2(rs.getString("income2"));
+				e.setIncome3(rs.getString("income3"));
+				e.setIncome4(rs.getString("income4"));
+				e.setIncome5(rs.getString("income5"));
+				e.setIncome6(rs.getString("income6"));
+				e.setIncome7(rs.getString("income7"));
+				e.setIncome8(rs.getString("income8"));
+				e.setIncome9(rs.getString("income9"));
+				e.setIncome10(rs.getString("income10"));
+
+				e.setMarried(rs.getString("married"));
+				e.setSicken(rs.getString("sicken"));
+				e.setDeformity(rs.getString("deformity"));
+				e.setDefgrade(rs.getString("defgrade"));
+				e.setLabor(rs.getString("labor"));
+				e.setFmsort(rs.getString("fmsort"));
+				e.setJob(rs.getString("job"));
 				list.add(e);
 			}
 
@@ -70,8 +94,13 @@ public class ReadData {
 				+ " t.masteridcard as idcard, "
 				+ " '身份证' as idtype, "
 				+ " to_char(sysdate, 'yyyy-MM-dd') as wt, "
-				+ " t.familyid "
-				+ " from exaddnew t where to_char( t.ctime,'yyyy-MM')=to_char( sysdate,'yyyy-MM') and "
+				+ " t.familyid ,"
+				+ " t.income1, t.income2, t.income3, "
+				+ " t.income4, t.income5, t.income6, "
+				+ " t.income7,  t.income8, t.income9, "
+				+ " t.income10, t.married, t.sicken, "
+				+ " t.deformity,  t.defgrade, t.labor,t.fmsort,t.job "
+				+ " from exaddnew1 t where to_char( t.ctime,'yyyy-MM')=to_char( sysdate,'yyyy-MM') and "
 				+ "t.relmaster = '本人' and t.familyno like ? and t.ds like ?";
 		System.out.println(sql);
 		try {
@@ -87,6 +116,25 @@ public class ReadData {
 				e.setWt(rs.getString("WT"));
 				e.setMasteridcard(rs.getString("IDCARD"));
 				e.setMastername(rs.getString("ANAME"));
+				
+				e.setIncome1(rs.getString("income1"));
+				e.setIncome2(rs.getString("income2"));
+				e.setIncome3(rs.getString("income3"));
+				e.setIncome4(rs.getString("income4"));
+				e.setIncome5(rs.getString("income5"));
+				e.setIncome6(rs.getString("income6"));
+				e.setIncome7(rs.getString("income7"));
+				e.setIncome8(rs.getString("income8"));
+				e.setIncome9(rs.getString("income9"));
+				e.setIncome10(rs.getString("income10"));
+
+				e.setMarried(rs.getString("married"));
+				e.setSicken(rs.getString("sicken"));
+				e.setDeformity(rs.getString("deformity"));
+				e.setDefgrade(rs.getString("defgrade"));
+				e.setLabor(rs.getString("labor"));
+				e.setFmsort(rs.getString("fmsort"));
+				e.setJob(rs.getString("job"));
 				list.add(e);
 			}
 
@@ -111,8 +159,13 @@ public class ReadData {
 				+ " t.memberidcard as fm_paperid, "
 				+ " t.relmaster    as fm_relmaster, "
 				+ " t.familyid     as familyid, "
-				+ " t.memberid     as fm_id "
-				+ " from excurrent t "
+				+ " t.memberid     as fm_id ,"
+				+ " t.income1, t.income2, t.income3, "
+				+ " t.income4, t.income5, t.income6, "
+				+ " t.income7,  t.income8, t.income9, "
+				+ " t.income10, t.married, t.sicken, "
+				+ " t.deformity,  t.defgrade, t.labor,t.fmsort,t.job "
+				+ " from excurrent1 t "
 				+ " where  t.familyno like ? and t.ds like ?";
 		System.out.println(sql);
 		try {
@@ -131,6 +184,25 @@ public class ReadData {
 				e.setFamilyid(rs.getString("familyid"));
 				e.setMemberid(rs.getString("fm_id"));
 				e.setMastername(rs.getString("mastername"));
+
+				e.setIncome1(rs.getString("income1"));
+				e.setIncome2(rs.getString("income2"));
+				e.setIncome3(rs.getString("income3"));
+				e.setIncome4(rs.getString("income4"));
+				e.setIncome5(rs.getString("income5"));
+				e.setIncome6(rs.getString("income6"));
+				e.setIncome7(rs.getString("income7"));
+				e.setIncome8(rs.getString("income8"));
+				e.setIncome9(rs.getString("income9"));
+				e.setIncome10(rs.getString("income10"));
+
+				e.setMarried(rs.getString("married"));
+				e.setSicken(rs.getString("sicken"));
+				e.setDeformity(rs.getString("deformity"));
+				e.setDefgrade(rs.getString("defgrade"));
+				e.setLabor(rs.getString("labor"));
+				e.setFmsort(rs.getString("fmsort"));
+				e.setJob(rs.getString("job"));
 				list.add(e);
 			}
 
@@ -155,8 +227,13 @@ public class ReadData {
 				+ " t.memberidcard as fm_paperid, "
 				+ " t.relmaster    as fm_relmaster, "
 				+ " t.familyid     as familyid, "
-				+ " t.memberid     as fm_id "
-				+ " from exaddnew t  "
+				+ " t.memberid     as fm_id ,"
+				+ " t.income1, t.income2, t.income3, "
+				+ " t.income4, t.income5, t.income6, "
+				+ " t.income7,  t.income8, t.income9, "
+				+ " t.income10, t.married, t.sicken, "
+				+ " t.deformity,  t.defgrade, t.labor,t.fmsort,t.job "
+				+ " from exaddnew1 t  "
 				+ " where to_char( t.ctime,'yyyy-MM')=to_char( sysdate,'yyyy-MM') and  t.familyno like ? and t.ds like ?";
 		System.out.println(sql);
 		try {
@@ -175,6 +252,26 @@ public class ReadData {
 				e.setFamilyid(rs.getString("familyid"));
 				e.setMemberid(rs.getString("fm_id"));
 				e.setMastername(rs.getString("mastername"));
+
+				e.setIncome1(rs.getString("income1"));
+				e.setIncome2(rs.getString("income2"));
+				e.setIncome3(rs.getString("income3"));
+				e.setIncome4(rs.getString("income4"));
+				e.setIncome5(rs.getString("income5"));
+				e.setIncome6(rs.getString("income6"));
+				e.setIncome7(rs.getString("income7"));
+				e.setIncome8(rs.getString("income8"));
+				e.setIncome9(rs.getString("income9"));
+				e.setIncome10(rs.getString("income10"));
+
+				e.setMarried(rs.getString("married"));
+				e.setSicken(rs.getString("sicken"));
+				e.setDeformity(rs.getString("deformity"));
+				e.setDefgrade(rs.getString("defgrade"));
+				e.setLabor(rs.getString("labor"));
+				e.setFmsort(rs.getString("fmsort"));
+				e.setJob(rs.getString("job"));
+				
 				list.add(e);
 			}
 
@@ -219,6 +316,7 @@ public class ReadData {
 		}
 		return list;
 	}
+
 	public List<ApplyDTO> getDataFhs1(String onno, String ds) {
 		List<ApplyDTO> list = new ArrayList<ApplyDTO>();
 		DBconn db = new DBconn();

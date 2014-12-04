@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html class="login-alone">
     <head>
-    <base href="<%=basePath%>">
         <title>吉林省低保核对数据导出平台</title>
 		<meta name="keywords" content="吉林省低保核对数据导出平台" />
 		<meta name="description" content="吉林省低保核对数据导出平台" />
@@ -33,14 +32,14 @@
         </div>
         <div class="logina-main main clearfix">
             <div class="tab-con">
-                <form id="form-login" method="post" action="${pageContext.request.contextPath}/Login">
+                <form id="form-login" method="post" action="passport/ajax-login">
                     <div id='login-error' class="error-tip"></div>
                     <table border="0" cellspacing="0" cellpadding="0">
                         <tbody>
                             <tr>
                                 <th>账户</th>
                                 <td width="245">
-                                    <input id="email" type="text" name="username" placeholder="请输入城市或农村用户名" autocomplete="off" value=""></td>
+                                    <input id="email" type="text" name="email" placeholder="请输入城市或农村用户名" autocomplete="off" value=""></td>
                                 <td>
                                 </td>
                             </tr>
