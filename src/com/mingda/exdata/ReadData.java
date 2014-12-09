@@ -283,14 +283,14 @@ public class ReadData {
 		}
 		return list;
 	}
-
-	public List<ApplyDTO> getDataFhs2(String onno, String ds) {
+//在保
+	public List<ApplyDTO> getDataFhs1(String onno, String ds) {
 		List<ApplyDTO> list = new ArrayList<ApplyDTO>();
 		DBconn db = new DBconn();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = " select paperid, chanquan, fh_number, laiyuan, fh_buildarea, on_no, ds from ccc_fh where 1<>1 and on_no like ? and ds like ?";
+		String sql = " select h.* from excurrent1 t, exfh h where t.masteridcard = h.paperid and t.familyno like ? and t.ds like ? ";
 		System.out.println(sql);
 		try {
 			conn = db.getJDBCConn();
@@ -316,14 +316,14 @@ public class ReadData {
 		}
 		return list;
 	}
-
-	public List<ApplyDTO> getDataFhs1(String onno, String ds) {
+//新增
+	public List<ApplyDTO> getDataFhs2(String onno, String ds) {
 		List<ApplyDTO> list = new ArrayList<ApplyDTO>();
 		DBconn db = new DBconn();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = " select paperid, chanquan, fh_number, laiyuan, fh_buildarea, on_no, ds from ccc_fh where on_no like ? and ds like ?";
+		String sql = "  select h.* from exaddnew1 t, exfh h where t.masteridcard = h.paperid and t.familyno like ? and t.ds like ?";
 		System.out.println(sql);
 		try {
 			conn = db.getJDBCConn();

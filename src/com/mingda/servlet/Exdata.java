@@ -2,6 +2,8 @@ package com.mingda.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -55,10 +57,13 @@ public class Exdata extends HttpServlet {
 		String p_cs = (String) map.get("p-cs");
 		String c_nc = (String) map.get("c-nc");
 		String p_nc = (String) map.get("p-nc");
-
+		
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMddhhmmss");
+		s= sdf.format(new Date());
 		if ("c-cs".equals(c_cs) || "p-cs".equals(p_cs)) {
 			if ("csadd".equals(type)) {
 				ds = "cs";
+				s=o2+"-csadd-"+s;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData3(o2, ds),
 						rd.getData4(o2, ds),rd.getDataFhs2(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
@@ -67,6 +72,7 @@ public class Exdata extends HttpServlet {
 			}
 			if ("cszb".equals(type)) {
 				ds = "cs";
+				s=o2+"-cszb-"+s;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData1(o2, ds),
 						rd.getData2(o2, ds),rd.getDataFhs1(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
@@ -79,6 +85,7 @@ public class Exdata extends HttpServlet {
 
 			if ("ncadd".equals(type)) {
 				ds = "nc";
+				s=o2+"-ncadd-"+s;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData3(o2, ds),
 						rd.getData4(o2, ds),rd.getDataFhs2(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
@@ -87,6 +94,7 @@ public class Exdata extends HttpServlet {
 			}
 			if ("nczb".equals(type)) {
 				ds = "nc";
+				s=o2+"-nczb-"+s;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData1(o2, ds),
 						rd.getData2(o2, ds),rd.getDataFhs1(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
