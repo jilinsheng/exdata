@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="res/passport/css/login.css?v=3.9">
         <!--[if lt IE 9]>
         <script>
-        window.location="homepage/support";
+        window.location="support.jsp";
         </script>
         <![endif]-->
     </head>
