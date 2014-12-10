@@ -57,27 +57,29 @@ public class Exdata extends HttpServlet {
 		String p_cs = (String) map.get("p-cs");
 		String c_nc = (String) map.get("c-nc");
 		String p_nc = (String) map.get("p-nc");
-		
+		String s1="";
 		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMddhhmmss");
-		s= sdf.format(new Date());
+		String dd= sdf.format(new Date());
 		if ("c-cs".equals(c_cs) || "p-cs".equals(p_cs)) {
 			if ("csadd".equals(type)) {
 				ds = "cs";
-				s=o2+"-csadd-"+s;
+				s=o2+"-csadd-"+dd;
+				s1=o2+"城市新增及调整"+dd;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData3(o2, ds),
 						rd.getData4(o2, ds),rd.getDataFhs2(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
-						+ ".zip\" target=\"_blank\">下载文件</a>";
+						+ ".zip\" target=\"_blank\">"+s1+"</a>";
 			}
 			if ("cszb".equals(type)) {
 				ds = "cs";
-				s=o2+"-cszb-"+s;
+				s=o2+"-cszb-"+dd;
+				s1=o2+"城市在保户"+dd;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData1(o2, ds),
 						rd.getData2(o2, ds),rd.getDataFhs1(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
-						+ ".zip\" target=\"_blank\">下载文件</a>";
+						+ ".zip\" target=\"_blank\">"+s1+"</a>";
 			}
 		}
 
@@ -85,21 +87,24 @@ public class Exdata extends HttpServlet {
 
 			if ("ncadd".equals(type)) {
 				ds = "nc";
-				s=o2+"-ncadd-"+s;
+				s=o2+"-ncadd-"+dd;
+				s1=o2+"农村新增及调整"+dd;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData3(o2, ds),
 						rd.getData4(o2, ds),rd.getDataFhs2(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
-						+ ".zip\" target=\"_blank\">下载文件</a>";
+						+ ".zip\" target=\"_blank\">"+s1+"</a>";
 			}
 			if ("nczb".equals(type)) {
 				ds = "nc";
-				s=o2+"-nczb-"+s;
+				s=o2+"-nczb-"+dd;
+				s1=o2+"农村在保户"+dd;
 				g.GenXLS(s, "Z:\\ftproot\\yljz\\exdata", rd.getData1(o2, ds),
 						rd.getData2(o2, ds),rd.getDataFhs1(o2, ds));
 				url = "<a href=\"http://" + request.getServerName() + ":"
 						+ request.getServerPort() + "/yljz/exdata/" + s
-						+ ".zip\" target=\"_blank\">下载文件</a>";
+						+ ".zip\" target=\"_blank\">"
+						+s1+ "</a>";
 			}
 		}
 		pw.write("<p align=\"center\">");
