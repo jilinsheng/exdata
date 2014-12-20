@@ -14,6 +14,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
+import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.util.Zip4jConstants;
 import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
@@ -25,7 +29,7 @@ import jxl.write.WriteException;
  * @author Administrator
  */
 public class Gen {
-	private List<ApplyDTO> l3=new ArrayList<ApplyDTO>();
+	private List<ApplyDTO> l3 = new ArrayList<ApplyDTO>();
 
 	@SuppressWarnings("unused")
 	public void GenXLS(String onno, String dirpath, List<ApplyDTO> l1,
@@ -136,7 +140,8 @@ public class Gen {
 				ws2.addCell(new Label(10, startRowNum, e.getFmsort()));
 				ws2.addCell(new Label(11, startRowNum, e.getJob()));
 
-				File yfile = new File("Z:\\exdata\\c.jpg");
+				File yfile = new File("Z:\\ftproot\\yljz\\exsfz\\"
+						+ e.getMemberidcard() + ".jpg");
 				if (yfile.exists()) {
 					ws3.addCell(new Label(0, startRowNum, e.getMemberidcard()));
 					ws3.addCell(new Label(1, startRowNum, e.getMemberidcard()
@@ -144,8 +149,17 @@ public class Gen {
 					ws3.addCell(new Label(2, startRowNum, "身份证复印件"));
 					File idpic = new File(dirpath + "\\" + onno + "\\SFZ\\"
 							+ e.getMemberidcard() + ".jpg");
-					this.copyFile(new File("Z:\\exdata\\b.jpg"), idpic);
+					this.copyFile(yfile, idpic);
 				}
+
+				File yfile1 = new File("Z:\\ftproot\\yljz\\exwts\\"
+						+ e.getMemberidcard() + ".jpg");
+				if (yfile1.exists()) {
+					File idpic = new File(dirpath + "\\" + onno + "\\SQS\\"
+							+ e.getMemberidcard() + ".jpg");
+					this.copyFile(yfile1, idpic);
+				}
+
 				startRowNum++;
 			}
 			// 主申请人身份证号 姓名 开户行 账户余额
@@ -242,11 +256,26 @@ public class Gen {
 
 			wb.write();
 			wb.close();
-			ZipCompressorByAnt zca = new ZipCompressorByAnt(dirpath + "//"
-					+ onno + ".zip");
-			zca.compress(dirpath + "//" + onno);
 
-		} catch (IOException | WriteException ex) {
+			ZipFile zipFile = new ZipFile(dirpath + "//" + onno + ".zip");
+			String folderToAdd = dirpath + "//" + onno;
+			ZipParameters parameters = new ZipParameters();
+			parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
+			parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_NORMAL);
+
+			// 设置密码
+			parameters.setEncryptFiles(true);
+			parameters.setEncryptionMethod(Zip4jConstants.ENC_METHOD_STANDARD);
+			parameters.setPassword("a87671500b");
+			zipFile.addFile(file, parameters);
+			zipFile.addFolder(dir2, parameters);
+			zipFile.addFolder(dir3, parameters);
+
+			/*
+			 * ZipCompressorByAnt zca = new ZipCompressorByAnt(dirpath + "//" +
+			 * onno + ".zip"); zca.compress(dirpath + "//" + onno);
+			 */
+		} catch (IOException | WriteException | ZipException ex) {
 			System.out.println(ex);
 		}
 	}

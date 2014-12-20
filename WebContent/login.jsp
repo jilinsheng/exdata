@@ -26,7 +26,7 @@
     </head>
     <body>
         <div class="logina-logo" style="height: 55px">
-		吉林省低保核对数据导出平台
+		<h1>吉林省低保核对数据导出平台</h1>
            <!-- <a href="">
                 <img src="res/passport/images/toplogo.png?v=3.9" height="60" alt="">
             </a> -->
@@ -85,7 +85,8 @@
             <div class="reg">
                 <!-- <p>还没有账号？<br>赶快免费注册一个吧！</p>
                 <a class="reg-btn" href="#">立即免费注册</a>-->
-				<p>吉林省低保核对数据导出平台</p>
+				<p align="center">
+				<a class="reg-btn" href="soft/360cse.zip">下载360极速浏览器</a></p>
             </div>
         </div>
         <div id="footer">

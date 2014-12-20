@@ -48,6 +48,9 @@
 			$('#tt').tabs('close', index);
 		}
 	}
+	function v(){
+		window.location="<%=basePath%>login.jsp";
+	}
 </script>
 <title>吉林省低保数据导出平台</title>
 </head>
@@ -58,12 +61,12 @@
 			<tr>
 				<td align="left"><strong> <font size="3"
 						color="#336699">吉林省低保数据导出平台 </font></strong></td>
-				<td align="right"><span><fontcolor="#336699">注销</font></span></td>
+				<td align="right"><span onclick="v()"><fontcolor="#336699">注销</font></span></td>
 			</tr>
 		</table>
 	</div>
 	<div data-options="region:'west',split:true,title:'功能菜单'"
-		style="width: 150px;">
+		style="width: 180px;">
 		<!-- <a href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="plain:true,iconCls:'icon-add'" onclick="addPanel()"></a>
 		<a href="javascript:void(0)" class="easyui-linkbutton"
@@ -73,14 +76,14 @@
 		<div class="easyui-accordion" data-options="fit:true,border:false">
 			<div title="数据导出" style="padding: 10px;" data-options="selected:true">
 				<a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市新增导出','<%=basePath%>page/exdata.jsp?type=csadd')">
-					城市新增导出</a>
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市新增调整导出','<%=basePath%>page/exdata.jsp?type=csadd')">
+					城市新增调整导出</a>
 					 <a href="javascript:void(0)" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('城市在保导出','<%=basePath%>page/exdata.jsp?type=cszb')">城市在保导出</a>
 					
 					<a href="javascript:void(0)" class="easyui-linkbutton"
-					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村新增导出','<%=basePath%>page/exdata.jsp?type=ncadd')">
-					农村新增导出</a>
+					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村新增调整导出','<%=basePath%>page/exdata.jsp?type=ncadd')">
+					农村新增调整导出</a>
 					 <a href="javascript:void(0)" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-mini-add'" onclick="addPanel('农村在保导出','<%=basePath%>page/exdata.jsp?type=nczb')">农村在保导出</a>
 					<%--  <a href="javascript:void(0)" class="easyui-linkbutton"
