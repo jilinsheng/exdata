@@ -87,6 +87,8 @@
                 <a class="reg-btn" href="#">立即免费注册</a>-->
 				<p align="center">
 				<a class="reg-btn" href="soft/360cse.zip">下载360极速浏览器</a></p>
+				<p align="center">
+				<a class="reg-btn" href="http://10.3.1.30:8080/default/">核对平台网址</a></p>
             </div>
         </div>
         <div id="footer">

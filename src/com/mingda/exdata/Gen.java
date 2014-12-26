@@ -44,7 +44,7 @@ public class Gen {
 				dir1.mkdirs();
 				System.out.println(dir2);
 				dir2.mkdirs();
-				System.out.println(dir2);
+				System.out.println(dir3);
 				dir3.mkdirs();
 			}
 
